@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Fraud Analysis</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        input {
+            padding: 5px;
+            margin-right: 10px;
+            width: 300px;
+        }
+
+        button {
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #333;
+        }
+
+        p {
+            margin-top: 10px;
+            color: #333;
+        }
+
+        .error-message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Website Fraud Analysis</h1>
+    <form method="post" action="/">
+        <label for="url">Enter URL to Analyze:</label>
+        <input type="text" name="url" required>
+        <button type="submit">Analyze</button>
+    </form>
+    {% if result %}
+        <h2>Analysis Result for {{ url }}</h2>
+        {% if result.is_fraudulent %}
+            <p>This website is potentially fraudulent.</p>
+        {% else %}
+            <p>This website appears to be safe.</p>
+        {% endif %}
+    {% endif %}
+    </body>
+</html>
